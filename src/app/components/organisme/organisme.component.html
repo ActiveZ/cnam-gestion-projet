@@ -1,0 +1,52 @@
+<table>
+  <caption>Les organismes</caption>
+
+  <!-- en tetes des colonnes du tableau -->
+  <tr>
+    <th>Nom</th>
+    <th>Adresse</th>
+    <th>téléphone</th>
+    <th>Contact</th>
+    <th>Site web</th>
+  </tr>
+
+  <!-- lignes du tableau -->
+  <tr *ngFor="let organisme of listOrganismes">
+    <td><input type="text" [(ngModel)]="organisme.name"></td>
+    <td><input type="text" [(ngModel)]="organisme.address"></td>
+    <td><input type="text" [(ngModel)]="organisme.tel"></td>
+    <td><input type="text" [(ngModel)]="organisme.contactName"></td>
+    <td><input type="text" [(ngModel)]="organisme.webUrl"></td>
+    <!-- bouton modifier -->
+    <td>
+      <ion-button color="warning" (click)="onUpdateOrganisme(organisme)">
+        <ion-icon slot="start" name="checkmark-outline"></ion-icon>
+        modifier
+      </ion-button>
+    </td>
+    <!-- bouton supprimer -->
+    <td>
+      <ion-button color="danger" (click)="onRemoveOrganisme(organisme.id, i)">
+        <ion-icon slot="start" name="trash-outline"></ion-icon>
+        supprimer
+      </ion-button>
+    </td>
+  </tr>
+
+  <!-- ligne ajouter un organisme -->
+  <tr>
+    <td><input type="text" [(ngModel)]="newOrganisme.name"></td>
+    <td><input type="text" [(ngModel)]="newOrganisme.address"></td>
+    <td><input type="text" [(ngModel)]="newOrganisme.tel"></td>
+    <td><input type="text" [(ngModel)]="newOrganisme.contact"></td>
+    <td><input type="text" [(ngModel)]="newOrganisme.webUrl"></td>
+    <!-- bouton ajouter -->
+    <td>
+      <ion-button (click)="onAddOrganisme()">
+        <ion-icon slot="start" name="add"></ion-icon>
+        Ajouter
+      </ion-button>
+    </td>
+    <td></td>
+  </tr>
+</table>

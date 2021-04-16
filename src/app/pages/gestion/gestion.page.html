@@ -1,0 +1,36 @@
+<ion-header class="ion-text-center">
+  <ion-toolbar>
+    <ion-title>GESTIONNAIRE DE PROJET</ion-title>
+    <ion-label>
+      User: {{ user.firstName }} {{ user.name }} Role: {{ myRole[user.role] }}
+    </ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <!-- menu des vues (user/organisme/project) -->
+  <div class="ion-text-center ion-margin">
+    <ion-segment mode="ios" [(ngModel)]="segment">
+      <ion-segment-button value="projects">
+        <ion-label>Projets</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="organismes">
+        <ion-label>Orgamismes</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="users">
+        <ion-label>Utilisateurs</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <!-- component projets visible -->
+  <app-project *ngIf="segment == 'projects'"></app-project>
+
+  <!-- component orgamismes visible -->
+  <app-organisme *ngIf="segment == 'organismes'"></app-organisme>
+
+  <!-- component utilisateurs visibles -->
+  <app-user *ngIf="segment == 'users'"></app-user>
+
+</ion-content>

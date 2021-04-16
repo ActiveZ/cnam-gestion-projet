@@ -1,0 +1,63 @@
+<table>
+  <caption>Les projets</caption>
+
+  <!-- en tetes des colonnes du tableau -->
+  <tr>
+    <th>Nom du projet</th>
+    <th>Chef de projet</th>
+    <th>Montant</th>
+    <th>Date début</th>
+    <th>Date fin</th>
+    <th>Description</th>
+    <th>Organisme</th>
+    <th>Documents</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <!-- lignes du tableau -->
+  <tr *ngFor="let project of listProjects">
+    <td><input type="text" [(ngModel)]="project.name"></td>
+    <td><input type="text" [(ngModel)]="project.idLeader"></td>
+    <td><input type="text" [(ngModel)]="project.amount"></td>
+    <td><input type="text" [(ngModel)]="project.startDate"></td>
+    <td><input type="text" [(ngModel)]="project.endDate"></td>
+    <td><input type="text" [(ngModel)]="project.description"></td>
+    <td><input type="text" [(ngModel)]="project.idOrganisme"></td>
+    <td><input type="text" [(ngModel)]="project.idDocuments"></td>
+    <!-- bouton modifier -->
+    <td>
+      <ion-button color="warning" (click)="onUpdateProject(project)">
+        <ion-icon slot="start" name="checkmark-outline"></ion-icon>
+        modifier
+      </ion-button>
+    </td>
+    <!-- bouton supprimer -->
+    <td>
+      <ion-button color="danger" (click)="onRemoveProject(project.id, i)">
+        <ion-icon slot="start" name="trash-outline"></ion-icon>
+        supprimer
+      </ion-button>
+    </td>
+  </tr>
+
+  <!-- ligne ajouter un projet -->
+  <tr>
+    <td><input type="text" [(ngModel)]="newProject.name"></td>
+    <td><input type="text" [(ngModel)]="newProject.idLeader"></td>
+    <td><input type="text" [(ngModel)]="newProject.amount"></td>
+    <td><input type="text" [(ngModel)]="newProject.startDate"></td>
+    <td><input type="text" [(ngModel)]="newProject.endDate"></td>
+    <td><input type="text" [(ngModel)]="newProject.description"></td>
+    <td><input type="text" [(ngModel)]="newProject.idOrganisme"></td>
+    <td><input type="text" [(ngModel)]="newProject.idDocuments"></td>
+    <!-- bouton ajouter -->
+    <td>
+      <ion-button (click)="onAddProject()">
+        <ion-icon slot="start" name="add"></ion-icon>
+        Ajouter
+      </ion-button>
+    </td>
+    <td></td>
+  </tr>
+</table>
