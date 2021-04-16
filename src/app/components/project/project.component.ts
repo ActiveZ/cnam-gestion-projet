@@ -28,7 +28,7 @@ export class ProjectComponent implements OnInit {
       })
   }
 
-  
+
   onAddProject() {
     this.projectService.addProject(this.newProject)
       .subscribe(() =>
