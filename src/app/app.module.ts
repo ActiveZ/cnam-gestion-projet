@@ -22,6 +22,7 @@ import { OrganismeComponent } from './components/organisme/organisme.component';
 import { UserService } from './services/user.service';
 import { ProjectService } from './services/project.service';
 import { OrganismeService } from './services/organisme.service';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { OrganismeService } from './services/organisme.service';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     UserService,
     ProjectService,
-    OrganismeService
+    OrganismeService,
+    AuthGuard
   ],
   bootstrap: [AppComponent],
 })

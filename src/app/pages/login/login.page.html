@@ -1,32 +1,25 @@
-<ion-content class="ion-padding" class="ion-text-center">
-  <div class="container">
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>IDENTIFIANTS</ion-card-title>
-
-        <!-- login -->
-        <ion-item>
-          <ion-label>Login:</ion-label>
-          <ion-input clearInput [(ngModel)]="login" placeholder="login"></ion-input>
-        </ion-item>
-
-        <!-- password -->
-        <ion-item>
-          <ion-label>Mot de passe:</ion-label>
-          <ion-input type="password" clearInput [(ngModel)]="password" placeholder="password"></ion-input>
-        </ion-item>
-
-      </ion-card-header>
-    </ion-card>
-  </div>
-</ion-content>
-
-<ion-footer>
+<ion-header>
   <ion-toolbar class="ion-text-center">
-    <ion-button class="ion-margin" color="medium" (click)="onLogin()">
-      <ion-icon color="success" slot="start" name="checkmark-outline"></ion-icon>
-      Envoyer
-    </ion-button>
+    <ion-label class="ion-padding">IDENTIFIANTS</ion-label>
   </ion-toolbar>
-</ion-footer>
+</ion-header>
+
+
+<ion-content class="ion-text-center" [fullscreen]="true">
+    <ion-card class="ion-text-center">
+
+      <form (ngSubmit)="onSubmit()" #loginForm>
+        <ion-label>Login</ion-label>
+        <ion-input type="text" clearInput [(ngModel)]="login" placeholder="login" required [ngModelOptions]="{standalone: true}"></ion-input>
+
+        <ion-label>Password</ion-label>
+        <ion-input type="password" clearInput [(ngModel)]="password" placeholder="password" required [ngModelOptions]="{standalone: true}"></ion-input>
+
+        <ion-button color="medium" class="ion-margin" (click)="onLogin()" [disabled]="!loginForm.checkValidity()">
+          <ion-icon color="success" slot="start" name="checkmark-outline"></ion-icon>
+          Envoyer
+        </ion-button>
+      </form>
+
+    </ion-card>
+</ion-content>

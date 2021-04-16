@@ -9,7 +9,7 @@ export class Project {
         public endDate : Date = new Date(),
         public amount: number = 0,
         public idLeader: number = null,
-        public idOrganisme: Organisme = null,
+        public idOrganisme: number = null,
         public idDocuments: number = null,
         ){ }
 

@@ -18,13 +18,31 @@
   <!-- lignes du tableau -->
   <tr *ngFor="let project of listProjects">
     <td><input type="text" [(ngModel)]="project.name"></td>
-    <td><input type="text" [(ngModel)]="project.idLeader"></td>
+    <!-- select leader du projet -->
+    <td>
+      <select (change)="onChangeLeader(project, $event.target.value)">
+        <option *ngFor="let item of listUsers" [value]="item.id" [selected]="project.idLeader==item.id">
+          {{item.name}}</option>
+      </select>
+    </td>
+
+    <!-- <td><input type="number" [(ngModel)]="project.idLeader"></td> -->
+
     <td><input type="text" [(ngModel)]="project.amount"></td>
     <td><input type="text" [(ngModel)]="project.startDate"></td>
     <td><input type="text" [(ngModel)]="project.endDate"></td>
     <td><input type="text" [(ngModel)]="project.description"></td>
-    <td><input type="text" [(ngModel)]="project.idOrganisme"></td>
-    <td><input type="text" [(ngModel)]="project.idDocuments"></td>
+
+    <!-- select organisme -->
+    <td>
+      <select (change)="onChangeOrganisme(project, $event.target.value)">
+        <option *ngFor="let item of listOrganismes" [value]="item.id" [selected]="project.idOrganisme==item.id">
+          {{item.name}}</option>
+      </select>
+    </td>
+
+    <td><input type="number" [(ngModel)]="project.idDocuments"></td>
+
     <!-- bouton modifier -->
     <td>
       <ion-button color="warning" (click)="onUpdateProject(project)">
