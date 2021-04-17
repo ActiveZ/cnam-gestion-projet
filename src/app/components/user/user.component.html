@@ -19,10 +19,17 @@
     <td><input type="text" [(ngModel)]="user.email"></td>
     <td><input type="text" [(ngModel)]="user.login"></td>
     <td><input type="text" [(ngModel)]="user.password"></td>
-    <td><input type="text" [(ngModel)]="myRole[user.role]"></td>
+
+    <!-- select role -->
+    <td>
+      <!-- le + cast $event-target.value en number -->
+      <select (change)="onChangeRole(user, +$event.target.value)">
+        <option *ngFor="let item of myRole | enumToArray" [value]="item.index" [selected]="user.role==item.index">
+          {{ item.name }}</option>
+      </select>
+    </td>
     <td>
       <ion-button color="warning" (click)="onUpdateUser(user)">
-        <!-- <ion-button color="warning" (click)="onUpdateUser(listUsers[i])"> -->
         <ion-icon slot="start" name="checkmark-outline"></ion-icon>
         modifier
       </ion-button>
@@ -41,7 +48,13 @@
     <td><input type="text" [(ngModel)]="newUser.email"></td>
     <td><input type="text" [(ngModel)]="newUser.login"></td>
     <td><input type="text" [(ngModel)]="newUser.password"></td>
-    <td><input type="number" [(ngModel)]="newUser.role"></td>
+    <td>
+      <select [(ngModel)]="newUser.role">
+        <!-- [ngValue] respecte le type, contrairement à [value] qui renvoie toujours un string] -->
+        <option *ngFor="let item of myRole | enumToArray" [ngValue]="item.index">
+          {{ item.name }}</option>
+      </select>
+    </td>
     <td>
       <ion-button (click)="onAddUser()">
         <ion-icon slot="start" name="add"></ion-icon>

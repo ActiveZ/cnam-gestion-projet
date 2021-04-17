@@ -45,7 +45,7 @@ export class ProjectComponent implements OnInit {
 
 
   onChangeOrganisme(project: Project, id: number) {
-    project.idOrganisme = Number(id)
+    project.idOrganisme = id
     this.onUpdateProject(project)
   }
 
@@ -60,7 +60,7 @@ export class ProjectComponent implements OnInit {
 
 
   onChangeLeader(project: Project, id: number) {
-    project.idLeader = Number(id)
+    project.idLeader = id
     this.onUpdateProject(project)
   }
 

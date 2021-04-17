@@ -7,6 +7,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
 })
+
 export class UserComponent implements OnInit {
 
   myRole = UserRole;
@@ -15,9 +16,10 @@ export class UserComponent implements OnInit {
 
   constructor(private userService: UserService) { }
 
-  
+
   ngOnInit() {
     this.getUsers()
+    console.log("myRole", UserRole)
   }
 
 
@@ -41,7 +43,7 @@ export class UserComponent implements OnInit {
 
   onUpdateUser(user: User) {
     this.userService.updateUser(user)
-    .subscribe()
+      .subscribe()
   }
 
 
@@ -49,6 +51,17 @@ export class UserComponent implements OnInit {
     this.userService.removeUser(id)
       .subscribe(() =>
         console.log("id to remove", id))
-    this.listUsers.splice(index,1)
+    this.listUsers.splice(index, 1)
+  }
+
+
+  onChangeRole(user: User, index: number) {
+    user.role = index
+    this.onUpdateUser(user)
+  }
+
+
+  onChangeRoleNewUser(index: number) {
+    this.newUser.role = Number(index)
   }
 }

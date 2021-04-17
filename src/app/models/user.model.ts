@@ -7,17 +7,17 @@ export class User {
         public email: string = "",
         public login: string = "",
         public password: string = "",
-        public role: UserRole = null
+        public role: number = 0
     ) { }
 }
 
 
 export enum UserRole {
-    admin,
-    chefProjet,
-    comptable,
-    directeur,
-    ingenieur,
-    secretaire,
-    technicien,
+    "Admin",
+    "Chef de projet",
+    "Comptable",
+    "Directeur",
+    "Ingénieur",
+    "Secrétaire",
+    "Technicien",
 }

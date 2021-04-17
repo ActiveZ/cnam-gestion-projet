@@ -10,7 +10,7 @@ export class Project {
         public amount: number = 0,
         public idLeader: number = null,
         public idOrganisme: number = null,
-        public idDocuments: number = null,
+        public idDocuments: number = 0,
         ){ }
 
 } 

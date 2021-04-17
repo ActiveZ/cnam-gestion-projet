@@ -23,6 +23,7 @@ import { UserService } from './services/user.service';
 import { ProjectService } from './services/project.service';
 import { OrganismeService } from './services/organisme.service';
 import { AuthGuard } from './auth.guard';
+import { EnumToArrayPipe } from './pipes/enum-to-array.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AuthGuard } from './auth.guard';
     GestionPage,
     UserComponent,
     ProjectComponent,
-    OrganismeComponent
+    OrganismeComponent,
+    EnumToArrayPipe
   ],
 
   entryComponents: [],
