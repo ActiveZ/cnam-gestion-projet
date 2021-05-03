@@ -18,6 +18,7 @@ const httpOptions = {
 export class AuthService {
 
   currentUser: User;
+  connexionDuration: number = 0;
 
   constructor(private http: HttpClient){ }
 

@@ -4,6 +4,7 @@
     <ion-label>
       User: {{ user.firstName }} {{ user.name }} Role: {{ myRole[user.role] }}
       -- Connexion le {{ dateLogin | date:'d/M/YYYY'}} à {{ dateLogin | date:'h:mm'}}
+      -- Connecté depuis {{ auth.connexionDuration }} secondes
     </ion-label>
     <!-- bt deconnexion -->
     <div class="ion-text-center">

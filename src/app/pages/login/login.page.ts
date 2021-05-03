@@ -30,6 +30,10 @@ export class LoginPage implements OnInit {
         console.log("login data", data[0])
         if (data[0]) {
           this.auth.currentUser = data[0]
+          // incrémente la durée de connexion toutes les secondes
+          setInterval(() => {
+            this.auth.connexionDuration++
+          }, 1000);
           this.router.navigate(['gestion', { dateLogin: new Date() }])
         }
         else {
