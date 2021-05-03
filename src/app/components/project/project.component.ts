@@ -69,7 +69,7 @@ export class ProjectComponent implements OnInit {
     this.projectService.getProjects()
       .subscribe(data => {
         this.listProjects = data
-        console.log("list projects component", this.listProjects)
+        // console.log("list projects component", this.listProjects)
       })
   }
 
