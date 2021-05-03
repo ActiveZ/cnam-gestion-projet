@@ -12,8 +12,8 @@ export class GestionPage implements OnInit {
 
   user: User;
   myRole = UserRole;
-  segment: any = "projects"
-  dateLogin: any
+  segment: any = "projects";
+  dateLogin: any;
 
   constructor(
     private auth: AuthService,
@@ -23,7 +23,6 @@ export class GestionPage implements OnInit {
   ngOnInit() {
     this.user = this.auth.currentUser
     this.dateLogin = this.route.snapshot.paramMap.get('dateLogin')
-    // console.log("dateLogin", this.dateLogin)
   }
 
 }
