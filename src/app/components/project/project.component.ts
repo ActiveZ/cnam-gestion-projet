@@ -5,7 +5,6 @@ import { User } from 'src/app/models/user.model';
 import { OrganismeService } from 'src/app/services/organisme.service';
 import { ProjectService } from 'src/app/services/project.service';
 import { UserService } from 'src/app/services/user.service';
-import { OrganismeComponent } from '../organisme/organisme.component';
 
 @Component({
   selector: 'app-project',
@@ -18,6 +17,7 @@ export class ProjectComponent implements OnInit {
   listOrganismes: Organisme[] = [] // liste des organismes pour select
   listUsers: User[] = [];
   newProject: Project = new Project();
+  focusValue: any = null // valeur contenue par le composant qui a le focus
 
 
   constructor(
@@ -50,12 +50,21 @@ export class ProjectComponent implements OnInit {
   }
 
 
+  // validation du changement du montant (refus si < 0)
+  onChangeAmount(i: number) {
+    if (this.listProjects[i].amount < 0) {
+      alert("Vous ne pouvez pas affecter un montant négatif !")
+      this.listProjects[i].amount = this.focusValue
+    }
+  }
+
+
   // récupération de la liste des users
   getUsers() {
     this.userService.getUsers()
-    .subscribe(data => {
-      this.listUsers = data
-    })
+      .subscribe(data => {
+        this.listUsers = data
+      })
   }
 
 

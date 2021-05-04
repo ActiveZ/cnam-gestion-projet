@@ -16,7 +16,7 @@
   </tr>
 
   <!-- lignes du tableau -->
-  <tr *ngFor="let project of listProjects">
+  <tr *ngFor="let project of listProjects; let i=index;">
     <td><input type="text" [(ngModel)]="project.name"></td>
     <!-- select leader du projet -->
     <td>
@@ -26,7 +26,8 @@
       </select>
     </td>
 
-    <td><input type="text" [(ngModel)]="project.amount"></td>
+    <td><input type="text" [(ngModel)]="project.amount" (focus)="focusValue=project.amount" (change)="onChangeAmount(i)"></td>
+    <!-- <td><input type="text" [(ngModel)]="project.amount" (focus)="onFocus(project.amount)" (change)="onChangeAmount(i)"></td> -->
     <td><input type="text" [(ngModel)]="project.startDate"></td>
     <td><input type="text" [(ngModel)]="project.endDate"></td>
     <td><input type="text" [(ngModel)]="project.description"></td>
